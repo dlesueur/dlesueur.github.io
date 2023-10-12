@@ -3,7 +3,7 @@ layout: post
 title:  "ggplot is forever"
 author: Daphne LeSueur
 description: A basic tutorial for your basic ggplot needs. 
-img: joy_division.jpg
+img: lines.jpg
 --- 
 
 ### Introduction
