@@ -7,7 +7,7 @@ img: lines.jpg
 --- 
 
 <!-- ### Introduction -->
-Base R plotting is out, ggplot is in. Actually, Base R plotting has been old hat since 2005 thanks to Hadley Wickham with the creation of ggplot. In this article we are going to go over the BASIC basic elements necessary for plotting in ggplot, as well as how to troubleshoot some common errors. In this article, we will be demonstrating with the `penguins` data set. Start by installing the `palmerpenguins` package and loading the package to your machine. 
+Base R plotting is out, ggplot is in. Actually, Base R plotting has been old hat since 2005 thanks to Hadley Wickham with the creation of ggplot. In this article we are going to go over the BASIC basic elements necessary for plotting in ggplot, as well as how to troubleshoot some common errors. In this article, I will be demonstrating with the `penguins` data set. Start by installing the `palmerpenguins` package and loading the package to your machine. 
 ```{r}
 install.packages('palmerpenguins')
 library(palmerpenguins)
@@ -45,7 +45,8 @@ Since we chose two variables, (`flipper_length_mm` and `body_mass_g`) we will vi
 base +
     geom_point()
 ```
-![ggplot]("assets/img/basic_ggplot.jpg")
+<img src="../assets/img/basic_ggplot.jpg" alt="basic ggplot" />
+
 ## Customize the plot
 Now that you have a plot plot with a geom, you can start to customize the way it looks. First, let's add some labels by adding a `labs()` element. 
 
@@ -67,7 +68,7 @@ base +
     title = "Flipper Length vs Body Mass")
 ```
 
-![plot]("assets/img/plot_with_titles.jpg")
+<img src="../assets/img/plot_with_titles.jpg" alt="ggplot with titles" />
 
 The other customizable elements we're going to explore in this tutorial are the color and shape of our points. In other graph types, this translates to color and line type, color and fill type, etc. 
 
@@ -80,9 +81,9 @@ base +
     y = "Body Mass (g)", 
     title = "Flipper Length vs Body Mass")
 ```
-![plot]("assets/img/blue_triangle_plot.jpg")
+<img src="../assets/img/blue_triangle_plot.jpg" alt="ggplot blue and triangles" />
 
-There are plently of colors and shapes that are built into R Studio. Play around with some colors you like and see if they're included. You an also find plently of lists of descriptive colors and shapes online. 
+There are plently of colors and shapes that are built into R Studio. Play around with some colors you like and see if they're included. You an also find plently of lists of descriptive colors and shapes online. Chekc out this [document](https://www.nceas.ucsb.edu/sites/default/files/2020-04/colorPaletteCheatsheet.pdf) I like that has enough R colors to go around the whole world. 
 
 The last type of customization I want to demonstrate is using a variable as one of our customizable aesthetics. 
 
@@ -90,14 +91,15 @@ In the plot we've been working with, we're looking at the flipper length compare
 
 Since we're going to be calling a variable from the dataset, we want to put this inside an `aes()` in our `geom_point`. A good rule of thumb is that all calls to variables go inside the `aes()`. 
 
-``` {r}
+``` 
 base +
     geom_point(aes(col = island)) +
     labs(x = "Flipper Length (mm)", 
     y = "Body Mass (g)", 
     title = "Flipper Length vs Body Mass")
 ```
-![plot]("assets/img/islands.jpg")
+
+<img src="../assets/img/islands.jpg" alt="ggplot by islands" />
 
 ## Conclusion
-Ggplot isn't as intimidating as it may be, even if you're well seasoned in Base R plotting. Next time you're visualizing your data, try it in ggplot!
+Ggplot isn't as intimidating as it may be, even if you're well seasoned in Base R plotting. For more tips and tricks on ggplot, check out this [cheat sheet.](https://www.maths.usyd.edu.au/u/UG/SM/STAT3022/r/current/Misc/data-visualization-2.1.pdf) Next time you're visualizing your data, try it in ggplot!
