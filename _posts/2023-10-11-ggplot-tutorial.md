@@ -7,7 +7,8 @@ img: mountains.jpg
 --- 
 
 <!-- ### Introduction -->
-Base R plotting is out, ggplot is in. Actually, Base R plotting has been old hat since 2005 thanks to Hadley Wickham with the creation of ggplot. In this article we are going to go over the BASIC basic elements necessary for plotting in ggplot, as well as how to troubleshoot some common errors. In this article, I will be demonstrating with the `penguins` data set. Start by installing the `palmerpenguins` package and loading the package to your machine. 
+Base R plotting is out, ggplot is in. Actually, Base R plotting has been old hat since 2005 thanks to Hadley Wickham with the creation of ggplot. In this article we are going to go over the BASIC basic elements necessary for plotting in ggplot. I will be demonstrating with the `penguins` data set. Start by installing the `palmerpenguins` package and loading the package to your machine. 
+
 ```{r}
 install.packages('palmerpenguins')
 library(palmerpenguins)
@@ -15,17 +16,20 @@ library(palmerpenguins)
 
 ## Create a ggplot
 The very first thing you need to do to create your visualization is to create a ggplot, give it some data, and decide what aesthetics you want to appear on your plot. The basic arguments for a ggplot are as follows:
+
 ```{r}
 ggplot(data, mapping = aes(x, y, ...))
 ```
-The data part is mostly self-explanatory. Feed the plot whatever data you are wishing to visualize!
 
-However, the mapping part is a little more confusing. Think to yourself, *What do I want to actually appear in the visualizaiton? What do I want to map to the graph?* This goes inside the `aes()` part of the argument. This will include your variable(s), colors, and a variety of different other ways to visualize the data which we will go over later. 
+The data argument is mostly self-explanatory. Feed the plot whatever data you are wishing to visualize!
+
+However, the mapping argument is a little more confusing. Think to yourself, *What do I want to actually appear in the visualizaiton? What do I want to map to the graph?* This goes inside the `aes()` part of the argument. This will include your variable(s), colors, and a variety of different other ways to visualize the data which we will go over later. 
 
 ```{r}
 base <- ggplot(data = penguins, mapping = aes(x = flipper_length_mm, y = body_mass_g))
 ```
-We're going to assign this plot to the variable `base` so we can refer to it later. This is not required, but can make the code simpler when you are changing lots of things about the plot. 
+
+We're going to assign this plot to the variable `base` so we can refer to it later. This is not required, but can make the code simpler when you are adding things to the plot. 
 
 ## Choose your visualization type
 If you haven't already chosen what type of graph you would like, now is the time. After your initial ggplot, you need to add what's called a geom. The geom dictates which of the things you put in your `aes()` go where on the graph. 
@@ -45,6 +49,7 @@ Since we chose two variables, (`flipper_length_mm` and `body_mass_g`) we will vi
 base +
     geom_point()
 ```
+
 <img src="../assets/img/basic_ggplot.jpg" alt="basic ggplot" />
 
 ## Customize the plot
