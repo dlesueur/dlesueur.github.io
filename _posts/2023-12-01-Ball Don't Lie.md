@@ -166,3 +166,5 @@ This loop in total took around 30 minutes to run so be prepared to wait!
 # Conclusion
 The [Ball Don't Lie API](https://www.balldontlie.io/home.html#introduction) is very easy to use and produces LOTS of easily cleanable data. To see what I've done with this data, look out for my next post. 
 
+View my repository containing all of the code in this article and each dataset [here](https://github.com/dlesueur/386Project?search=1)!
+
