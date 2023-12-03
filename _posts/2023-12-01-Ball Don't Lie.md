@@ -35,9 +35,9 @@ but personally I prefer to just do it all at once and name a new variable for ea
 
 An important thing to know about this API is it will only give you 100 lines per "page". I wanted to get literally every page possible of players, and after some experimenting I found that this came out to 52 pages which means 52 separate pulls. I didn't want to do 52 pulls by hand and concatenate every single one, so I wrote a formula and used a little for loop to do this for me. I will paste the code here and then break it down. 
 
-First and foremost let's initialize the dataframe.
+First and foremost let's initialize a list to store all of the DataFrames that come from our pulls.
 ```python
-df = pd.DataFrame() # create an empty df
+dfs_list = [] # create an empty list
 ```
 
 Now onto the big boy formula.
@@ -55,8 +55,9 @@ def get_page(number):
         df['team_abr'] = df['team'].apply(lambda x: x.get('abbreviation') if isinstance(x, dict) else None)
         df['city'] = df['team'].apply(lambda x: x.get('city') if isinstance(x, dict) else None)
         df = df.drop('team', axis=1)
-        # now we want to save to a df
-        players_df = players_df.concat(df, ignore_index = True)
+        # save df to list
+        dfs_list.append(df)
+        
     # if the status gives an error, we would like to know what the error is
     else: 
         return print(f'Status code error: {r.status_code}')
@@ -71,6 +72,10 @@ It is useful to try doing a single pull by hand first and then using the formula
 ```python
 for i in range(0, 51):
     get_page(i)
+```
+After we loop through that formula 52 times, we need to concat all the DataFrames saved in our list into one single DataFrame. This is how I accomplished this.
+```python
+players_df = pd.concat(dfs_list, ignore_index = True)
 ```
 The simpler the better for a rookie like me. Thus concludes the extraction of the Players data!
 
@@ -105,7 +110,7 @@ I wanted to get all the games from the 2022-23 season which ended up being a tot
 
 ```python 
 games_url = "https://www.balldontlie.io/api/v1/games"
-games_df = pd.DataFrame() # initialize empty data frame
+games_list = [] # initialize empty list
 def get_page_game(number):
     para = {"page" : number , "per_page" : 100, "seasons[]" : [2022]} # set parameters according to page number
     r = requests.get(games_url, params = para)
@@ -116,10 +121,13 @@ def get_page_game(number):
     df['home_team_id'] = df['home_team'].apply(lambda x: x.get('id') if isinstance(x, dict) else None)
     df['visitor_team_id'] = df['visitor_team'].apply(lambda x: x.get('id') if isinstance(x, dict) else None)
     df = df.drop(['home_team', 'visitor_team'], axis=1)
-    # concat to the DataFrame
-    games_df = games_df.concat(df, ignore_index = True))
+    # append to list
+    games_list.append(df)
+# loop through to get all pages
 for i in range(0, 15):
     get_page_game(i)
+# concat to one Data Frame
+games_df = pd.concat(games_list, ignore_index = True)
 ```
 Here's everything all at once, starting with naming the URL, initializing the DataFrame, defining the function, and running it 16 times with a loop. Again, it would be useful to try this once outside of the function to step through the lines and understand what each does. After than that, loop away! Also, note the additional param of `"seasons[]"`. The season should be specified in an array contained in brackets, in case you want to get more than one season. Check out the documentation for this API for more available parameters. 
 
