@@ -21,7 +21,7 @@ That's more than enough introduction for anyone to understand what's going on in
 
 Like I mentioned, my initial questions were all based on points and their correlation with other metrics. But as soon as I got the data I was curious about the distribution of points.
 
-![point distribution](/assets/img/Viz/homeVsVisitorPointDistribution.png)
+![point distribution](/assets/img/Viz/homeVsVisitorPointDistribution.png){ width="800" height="600" style="display: block; margin: 0 auto" }
 
 This histogram shows the difference between home team and visitor team score. Both look pretty relatively normal, with home team score having a little bit higher of a mean. Which is exactly what I would have expected! In fact the mean home team score is 115.64 where mean visitor score is 112.92. Marginally different, but this confirms the hypothesis that I had about these distributions. 
 
