@@ -17,7 +17,7 @@ Another important file to have access to is this [modifyDatasets](https://github
 
 That's more than enough introduction for anyone to understand what's going on in this post, so let's just get into the Exploring and Analyzing, the whole reason we came here in the first place.
 
-# What's Going on With these Points?
+# Points Exploration
 
 ## What is the distribution of points?
 
@@ -70,7 +70,8 @@ We can see some correlation in both of the plots, the first with positive correl
 
 Enough looking at points and wins. Let's look at something else. 
 
-# What does height have to say about basketball performance?
+# What does height have to do with basketball performance?
+
 If you were tall as a kid (or now I guess) you're familiar with the stereotype that tall kids are better at basketball. Is that true for the pros too?
 
 Let's start by looking at the distribution of heights. How tall are these players really?
@@ -83,13 +84,58 @@ Along the x axis is height in inches. We have a spread of 72 to 85 inches, with 
 
 ## Does the tallest player score the most points?
 
-I know I promised we would stop talking about points but I just wanted to look at this really quickly. 
+I know I promised we would stop talking about points but I just wanted to look at this really quickly.
+
+![height x points](/assets/img/Viz/heightVsPoints.png)
+
+Interestingly enough, it doesn't seem like the taller players score any more points than the shorter ones. What about shot percentage?
+
+## Does the tallest player have the best shot percentage?
+
+![height x shot %](/assets/img/Viz/heightVsAverage.png)
+![height x 3 pts %](/assets/img/Viz/heightVs3Pt.png)
+
+These plots map height and shot percentage for normal field goals and three point shots. It looks like there is an increase in percent of shots made for the taller players when it comes to normal field goals. For three point shots, however, the taller players don't necessarily have the best 3 point shot percentage. And this even shows that some of the talles players have some of the worst 3 point percentages. 
+
+I'm finally done talking about points now. Let's explore how height affects other metrics. 
+
+## Does the tallest player get the most rebounds and blocks?
+
+Instinct would say that taller players have an advantage over shorter ones when it comes to blocks and rebounds. 
+
+![blocks](/assets/img/Viz/blocks.png)
+![rebounds](/assets/img/Viz/rebounds.png)
+
+This data confirms our instinct. It appears that taller players get more blocks and rebounds per game. 
+
+## How tall are the players in each position?
+
+![tall](/assets/img/Viz/heightXPosition.png)
+
+This isn't surprising at all. The Centers are on average the tallest players in the league.
+
+# What do each of the Points, Steals, Rebounds, Blocks, and Assists metrics look like for each position?
+Looking at height by position made me wonder what each of these metrics were like for each position. In all sports, different positions are known for having different technical skills so I would assume the means for each metric will vary based on position. For our last exploration, let's look at the boxplots for each of these.
+
+### Points
+![points](/assets/img/Viz/PointsXPosition.png)
+
+### Steals
+![steals](/assets/img/Viz/StealsXPosition.png)
+
+### Rebounds
+![rebounds](/assets/img/Viz/ReboundsXPosition.png)
+
+### Blocks
+![blocks](/assets/img/Viz/BlocksXPosition.png)
+
+### Assists
+![assists](/assets/img/Viz/AssistsXPosition.png)
 
 
-Show height vs points. Height vs rebounds. Height vs blocks. 
+# Conclusion
+With an EDA like the one demonstrated here, there is no real conclusion to the data. But I can have a conclusion to my post! In this EDA I barely scratched the surface of the exploration we can do on this data. Hopefully it's clear that my original questions led to new questions and I was able to create some interesting visualizations. My purposes with this dataset obviously aren't going to lead to anything world changing for the NBA; this is mostly just out of my own personal interest. 
 
-Do some visualization on heights and position. Then show all boxplots of position and the five metrics. 
-
-
+In my next EDA with this dataset I hope to explore the relationship between teams win-loss record and some sort of algorithmic combination of each player's personal stats. Hopefully you too have come up with an idea for your next EDA!
 
 
