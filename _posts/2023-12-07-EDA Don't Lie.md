@@ -132,6 +132,8 @@ Looking at height by position made me wonder what each of these metrics were lik
 ### Assists
 ![assists](/assets/img/Viz/AssistsXPosition.png)
 
+Most of these metrics have an average of near zero. Assists and rebounds, though, have varying means. Points appears to have a little variation in mean as well. 
+
 
 # Conclusion
 With an EDA like the one demonstrated here, there is no real conclusion to the data. But I can have a conclusion to my post! In this EDA I barely scratched the surface of the exploration we can do on this data. Hopefully it's clear that my original questions led to new questions and I was able to create some interesting visualizations. My purposes with this dataset obviously aren't going to lead to anything world changing for the NBA; this is mostly just out of my own personal interest. 
